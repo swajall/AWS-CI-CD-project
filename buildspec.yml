@@ -5,6 +5,7 @@ phases:
     commands:
       - pyenv install 3.9.18 --skip-existing
       - pyenv global 3.9.18
+      - python --version
       - pip install --upgrade pip setuptools wheel
   build:
     commands:
