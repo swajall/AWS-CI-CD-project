@@ -81,7 +81,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
       
-      
+      - name: Free up disk space
+        run: |
+          docker system prune -af
+          docker volume prune -f
+          
       - name: Pull latest images
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URL}}/${{ secrets.APP_NAME }}:latest
